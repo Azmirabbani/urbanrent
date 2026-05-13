@@ -1,0 +1,321 @@
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+/*
+ * Warna: netral hangat (stone) + aksen teal yang tenang — mudah dibaca segala usia.
+ * Font: Plus Jakarta Sans — jelas di layar, tidak terlalu teknis/modern berlebihan.
+ */
+@theme {
+  --font-sans:
+    "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif, "Segoe UI",
+    "Apple Color Emoji", sans-serif;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: rgb(28 25 23);
+  background-color: rgb(249 250 251);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.dark body,
+.dark {
+  color: rgb(225 225 225);
+  background-color: rgb(18 18 18);
+}
+
+/* ── Dark mode global overrides ── */
+/* backgrounds */
+.dark .bg-white {
+  background-color: rgb(26 26 26) !important;
+}
+.dark .bg-gray-50 {
+  background-color: rgb(18 18 18) !important;
+}
+.dark .bg-stone-50 {
+  background-color: rgb(22 22 22) !important;
+}
+.dark .bg-stone-100 {
+  background-color: rgb(32 32 32) !important;
+}
+.dark .min-h-screen {
+  background-color: rgb(18 18 18);
+}
+
+/* borders */
+.dark .border-stone-200 {
+  border-color: rgb(45 45 45) !important;
+}
+.dark .border-stone-100 {
+  border-color: rgb(38 38 38) !important;
+}
+.dark .divide-stone-100 > * + * {
+  border-color: rgb(38 38 38) !important;
+}
+
+/* text */
+.dark .text-stone-950 {
+  color: rgb(245 245 245) !important;
+}
+.dark .text-stone-900 {
+  color: rgb(235 235 235) !important;
+}
+.dark .text-stone-800 {
+  color: rgb(210 210 210) !important;
+}
+.dark .text-stone-700 {
+  color: rgb(185 185 185) !important;
+}
+.dark .text-stone-600 {
+  color: rgb(160 160 160) !important;
+}
+.dark .text-stone-500 {
+  color: rgb(130 130 130) !important;
+}
+.dark .text-stone-400 {
+  color: rgb(110 110 110) !important;
+}
+
+/* hover states */
+.dark .hover\:bg-stone-50:hover {
+  background-color: rgb(32 32 32) !important;
+}
+.dark .hover\:bg-stone-100:hover {
+  background-color: rgb(38 38 38) !important;
+}
+
+/* shadows */
+.dark .shadow-sm {
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.5) !important;
+}
+.dark .shadow-xl {
+  box-shadow: 0 20px 40px -8px rgb(0 0 0 / 0.6) !important;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .toast-enter {
+    animation: toast-slide-in 0.28s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  .lift-hover {
+    transition:
+      transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.2s ease;
+  }
+
+  .lift-hover:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 12px 24px -8px rgb(28 25 23 / 0.12),
+      0 4px 8px -4px rgb(28 25 23 / 0.06);
+  }
+
+  .fade-rise {
+    animation: fade-rise 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .fade-rise-delay-1 {
+    animation-delay: 0.08s;
+  }
+  .fade-rise-delay-2 {
+    animation-delay: 0.16s;
+  }
+  .fade-rise-delay-3 {
+    animation-delay: 0.24s;
+  }
+
+  /* Navbar scroll shadow */
+  .navbar-scrolled {
+    box-shadow: 0 2px 12px 0 rgb(0 0 0 / 0.08);
+  }
+
+  /* Page transition */
+  .page-enter {
+    animation: fade-rise 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  /* stagger children */
+  .stagger-item {
+    opacity: 0;
+    animation: fade-rise 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  /* card hover scale */
+  .card-hover {
+    transition:
+      transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.2s ease,
+      border-color 0.2s ease;
+  }
+  .card-hover:hover {
+    transform: translateY(-3px) scale(1.01);
+    box-shadow:
+      0 16px 32px -8px rgb(0 0 0 / 0.1),
+      0 4px 8px -4px rgb(0 0 0 / 0.06);
+  }
+
+  /* slide in from left */
+  .slide-in-left {
+    animation: slide-in-left 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  /* slide in from right */
+  .slide-in-right {
+    animation: slide-in-right 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .shimmer {
+    background: linear-gradient(
+      110deg,
+      rgb(231 229 228) 0%,
+      rgb(245 245 244) 45%,
+      rgb(231 229 228) 90%
+    );
+    background-size: 200% 100%;
+    animation: shimmer-move 2.5s ease-in-out infinite;
+  }
+
+  .hero-blob {
+    animation: blob-float 18s ease-in-out infinite;
+  }
+  .hero-blob-delay {
+    animation-delay: -6s;
+  }
+}
+
+@keyframes toast-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fade-rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer-move {
+  0%,
+  100% {
+    background-position: 100% 50%;
+  }
+  50% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes blob-float {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(12px, -16px) scale(1.03);
+  }
+  66% {
+    transform: translate(-10px, 10px) scale(0.98);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes count-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes page-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+
+/* Panel konten & pola halaman */
+.bg-page-dots {
+  background-color: rgb(249 250 251);
+  background-image: radial-gradient(
+    rgb(156 163 175 / 0.2) 1px,
+    transparent 1px
+  );
+  background-size: 24px 24px;
+}
+
+.dark .bg-page-dots {
+  background-color: rgb(18 18 18);
+  background-image: radial-gradient(rgb(60 60 60 / 0.5) 1px, transparent 1px);
+}
+
+.content-stack {
+  border-radius: 1rem;
+  border: 1px solid rgb(229 231 235);
+  background: #ffffff;
+  box-shadow:
+    0 1px 3px 0 rgb(0 0 0 / 0.05),
+    0 1px 2px -1px rgb(0 0 0 / 0.05);
+}
+
+.dark .content-stack {
+  border-color: rgb(45 45 45);
+  background: rgb(26 26 26);
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.4);
+}
