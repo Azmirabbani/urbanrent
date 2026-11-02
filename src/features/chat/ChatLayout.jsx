@@ -78,7 +78,7 @@ function ChatPanel({ conversationId }) {
           Pilih percakapan
         </p>
         <p className="max-w-xs text-sm text-stone-400">
-          Chat diStarting from halaman detail listing — klik "Chat with Owner".
+          Chat dimulai dari halaman detail listing — klik "Chat dengan Owner".
         </p>
       </div>
     );

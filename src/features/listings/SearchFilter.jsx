@@ -63,7 +63,7 @@ export function SearchFilter({ onFilter }) {
             className="text-xs font-medium text-stone-600 dark:text-stone-400"
             htmlFor="Kota"
           >
-            City
+            Kota
           </label>
           <Input
             id="Kota"
@@ -122,7 +122,7 @@ export function SearchFilter({ onFilter }) {
                 key={id}
                 type="button"
                 onClick={() => toggleAmenity(id)}
-                className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium transition ${
+                className={`inline-flex items-center gap-1.5 rounded-full px-3 py-2 text-xs font-medium transition sm:py-1 ${
                   active
                     ? "bg-teal-800 text-white"
                     : "border border-stone-200 bg-white text-stone-600 hover:border-teal-300 hover:text-teal-700 dark:border-stone-700 dark:bg-stone-800 dark:text-stone-400"

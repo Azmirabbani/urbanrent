@@ -25,16 +25,16 @@ function NavLinks({ onNavigate, horizontal }) {
   return (
     <nav className={wrapCls}>
       <NavLink to="/explore" className={linkClass} onClick={onNavigate}>
-        Explore
+        Jelajahi
       </NavLink>
 
       {user && role === "tenant" && (
         <>
           <NavLink to="/my-bookings" className={linkClass} onClick={onNavigate}>
-            My Bookings
+            Booking Saya
           </NavLink>
           <NavLink to="/favorites" className={linkClass} onClick={onNavigate}>
-            Favorites
+            Favorit
           </NavLink>
         </>
       )}
@@ -53,14 +53,14 @@ function NavLinks({ onNavigate, horizontal }) {
             className={linkClass}
             onClick={onNavigate}
           >
-            Properties
+            Properti
           </NavLink>
           <NavLink
             to="/Owner/bookings"
             className={linkClass}
             onClick={onNavigate}
           >
-            Incoming Bookings
+            Booking Masuk
           </NavLink>
         </>
       )}
@@ -74,16 +74,16 @@ function NavLinks({ onNavigate, horizontal }) {
       {user ? (
         <>
           <NavLink to="/messages" className={linkClass} onClick={onNavigate}>
-            Messages
+            Pesan
           </NavLink>
           <NavLink to="/profile" className={linkClass} onClick={onNavigate}>
-            Profile
+            Profil
           </NavLink>
         </>
       ) : (
         <>
           <NavLink to="/signin" className={linkClass} onClick={onNavigate}>
-            Sign In
+            Masuk
           </NavLink>
           <NavLink
             to="/signup"
@@ -94,7 +94,7 @@ function NavLinks({ onNavigate, horizontal }) {
                 : "inline-flex h-9 items-center justify-center rounded-md bg-teal-800 px-3 text-sm font-medium text-white transition hover:bg-teal-900 active:scale-[0.98]"
             }
           >
-            Sign Up
+            Daftar
           </NavLink>
         </>
       )}
@@ -169,7 +169,7 @@ export function Navbar() {
               className="transition active:scale-[0.98]"
               onClick={handleSignOut}
             >
-              Sign Out
+              Keluar
             </Button>
           ) : null}
         </div>
@@ -182,7 +182,7 @@ export function Navbar() {
               size="sm"
               onClick={handleSignOut}
             >
-              Sign Out
+              Keluar
             </Button>
           ) : null}
           <button

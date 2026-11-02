@@ -389,7 +389,7 @@ export default function ListingFormPage() {
               className="text-sm font-medium text-stone-800"
               htmlFor="price"
             >
-              Harga / night (Rp)
+              Harga / malam (Rp)
             </label>
             <Input
               id="price"

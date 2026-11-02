@@ -117,7 +117,7 @@ export default function MyBookingsPage() {
                       Belum ada booking
                     </p>
                     <p className="text-sm text-stone-400">
-                      Jelajahi apartemen dan Submit booking pertamamu.
+                      Jelajahi apartemen dan ajukan booking pertamamu.
                     </p>
                   </div>
                 )}

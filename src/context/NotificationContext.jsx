@@ -83,7 +83,7 @@ export function NotificationProvider({ children }) {
               if (listing?.owner_id === user.id) {
                 toast({
                   title: "📬 Booking baru masuk",
-                  description: `Tenant mengSubmit booking untuk ${listing.title}`,
+                  description: `Tenant mengajukan booking untuk ${listing.title}`,
                 });
                 setUnreadCount((c) => c + 1);
               }

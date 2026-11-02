@@ -46,14 +46,14 @@ const SERVICES = [
   {
     icon: Award,
     title: "Booking Mudah",
-    desc: "Submit booking dalam hitungan menit, konfirmasi langsung dari Owner.",
+    desc: "Ajukan booking dalam hitungan menit, konfirmasi langsung dari Owner.",
   },
 ];
 
 const BENEFITS = [
   { label: "Proses booking cepat & mudah", pct: 95 },
   { label: "Kepuasan penyewa", pct: 98 },
-  { label: "Verified listings", pct: 100 },
+  { label: "Listing terverifikasi", pct: 100 },
   { label: "Respons Owner dalam 24 jam", pct: 90 },
 ];
 
@@ -226,13 +226,13 @@ export default function LandingPage() {
         <div className="mx-auto max-w-6xl">
           <div className="text-center">
             <p className="text-xs font-semibold uppercase tracking-widest text-teal-400">
-              Our Services
+              Layanan Kami
             </p>
             <h2 className="mt-3 text-3xl font-bold text-white sm:text-4xl">
-              Complete &amp; Integrated Services
+              Layanan Lengkap &amp; Terintegrasi
             </h2>
             <p className="mx-auto mt-3 max-w-xl text-sm text-teal-300/60">
-              Everything you need untuk sewa apartemen — dalam satu platform.
+              Semua yang kamu butuhkan untuk sewa apartemen — dalam satu platform.
             </p>
           </div>
 
@@ -320,10 +320,10 @@ export default function LandingPage() {
             {/* right: progress bars */}
             <div>
               <p className="text-xs font-semibold uppercase tracking-widest text-teal-600">
-                Why UrbanRent
+                Kenapa UrbanRent
               </p>
               <h2 className="mt-3 text-3xl font-bold text-stone-900 sm:text-4xl">
-                Key Benefits for You
+                Keunggulan untuk Kamu
               </h2>
               <p className="mt-4 text-stone-500">
                 Kami memastikan pengalaman sewa yang mulus — dari pencarian
@@ -358,27 +358,27 @@ export default function LandingPage() {
       <section className="bg-stone-950 px-4 py-20">
         <div className="mx-auto max-w-4xl text-center">
           <p className="text-xs font-semibold uppercase tracking-widest text-teal-400">
-            How it works
+            Cara kerja
           </p>
           <h2 className="mt-3 text-3xl font-bold text-white sm:text-4xl">
-            Get started in 3 steps
+            Mulai dalam 3 langkah
           </h2>
           <div className="mt-14 grid gap-8 sm:grid-cols-3">
             {[
               {
                 step: "01",
-                title: "Find a listing",
+                title: "Cari listing",
                 desc: "Filter kota dan harga sesuai kebutuhan kamu.",
               },
               {
                 step: "02",
-                title: "Book Now",
-                desc: "Select check-in and check-out dates, then submit.",
+                title: "Booking",
+                desc: "Pilih tanggal check-in dan check-out, lalu ajukan.",
               },
               {
                 step: "03",
                 title: "Check-in",
-                desc: "Owner confirms, you are ready to check in.",
+                desc: "Owner mengonfirmasi, kamu siap check-in.",
               },
             ].map(({ step, title, desc }, i) => (
               <div
@@ -415,10 +415,10 @@ export default function LandingPage() {
         />
         <div className="relative mx-auto max-w-2xl">
           <p className="text-xs font-semibold uppercase tracking-widest text-teal-200">
-            Get started
+            Mulai sekarang
           </p>
           <h2 className="mt-3 text-3xl font-bold text-white sm:text-4xl">
-            Dari Pencarian ke Check-in in Hitungan Menit
+            Dari Pencarian ke Check-in dalam Hitungan Menit
           </h2>
           <p className="mt-4 text-teal-100/70">
             Bergabung dan temukan apartemen terbaik di kotamu.
@@ -427,7 +427,7 @@ export default function LandingPage() {
             to="/signup"
             className="mt-8 inline-flex h-12 items-center gap-2 rounded-xl bg-stone-950 px-8 text-sm font-semibold text-white shadow-lg transition hover:bg-stone-800 active:scale-[0.98]"
           >
-            Get Started Free
+            Daftar Gratis
             <ArrowRight className="h-4 w-4" />
           </Link>
         </div>

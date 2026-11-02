@@ -64,9 +64,9 @@ export default function SigninPage() {
     <AuthShell variant="signin">
       <Card className="overflow-hidden border-stone-200 shadow-xl dark:border-stone-700 dark:bg-stone-900">
         <CardHeader className="border-b border-stone-100 bg-stone-50 pb-6 dark:border-stone-800 dark:bg-stone-900">
-          <CardTitle className="text-xl dark:text-white">Sign In</CardTitle>
+          <CardTitle className="text-xl dark:text-white">Masuk</CardTitle>
           <CardDescription className="dark:text-stone-400">
-            Use your email and account password.
+            Gunakan email dan kata sandi akunmu.
           </CardDescription>
         </CardHeader>
         <CardContent className="pt-6 dark:bg-stone-900">
@@ -94,7 +94,7 @@ export default function SigninPage() {
                 className="text-sm font-medium text-stone-800 dark:text-stone-200"
                 htmlFor="password"
               >
-                Password
+                Kata sandi
               </label>
               <PasswordInput
                 id="password"
@@ -114,7 +114,7 @@ export default function SigninPage() {
               </p>
             )}
             <Button type="submit" className="w-full" disabled={loading}>
-              {loading ? "Processing…" : "Sign In"}
+              {loading ? "Memproses…" : "Masuk"}
             </Button>
           </form>
           <p className="mt-6 text-center text-sm text-stone-600 dark:text-stone-400">
@@ -122,7 +122,7 @@ export default function SigninPage() {
               to="/forgot-password"
               className="font-medium text-teal-700 underline-offset-2 hover:underline dark:text-teal-400"
             >
-              Forgot password?
+              Lupa kata sandi?
             </Link>
             <span
               className="mx-2 text-stone-300 dark:text-stone-600"

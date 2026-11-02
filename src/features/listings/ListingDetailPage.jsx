@@ -12,6 +12,7 @@ import { useListing } from "@/features/listings/useListings.js";
 import { useAuthContext } from "@/context/AuthContext.jsx";
 import { supabase } from "@/lib/supabase.js";
 import { useState } from "react";
+import { usePageTitle } from "@/lib/usePageTitle.js";
 
 function DetailSkeleton() {
   return (
@@ -38,6 +39,7 @@ export default function ListingDetailPage() {
   const { user } = useAuthContext();
   const { listing, loading, error } = useListing(id);
   const [startingChat, setStartingChat] = useState(false);
+  usePageTitle(listing ? `${listing.title} - ${listing.location}` : "Detail listing");
 
   async function handleChat() {
     if (!user) {
@@ -104,14 +106,14 @@ export default function ListingDetailPage() {
             to="/explore"
             className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-teal-800 hover:underline"
           >
-            <ChevronLeft className="h-4 w-4" /> Back to explore
+            <ChevronLeft className="h-4 w-4" /> Kembali ke pencarian
           </Link>
         </div>
       </div>
     );
   }
 
-  const amenities = listing.amenities ?? ["Wi‑Fi", "AC"];
+  const amenities = listing.amenities ?? ["Wi-Fi", "AC"];
   const images = listing.photos ?? [];
   const ownerId = listing.owner_id;
   const ownerProfile = listing.owner;
@@ -204,19 +206,19 @@ export default function ListingDetailPage() {
           <aside className="lg:sticky lg:top-24 lg:self-start">
             <div className="overflow-hidden rounded-2xl border border-stone-200 bg-white p-6 shadow-lg dark:border-stone-800 dark:bg-stone-900">
               <p className="text-xs font-semibold uppercase tracking-wide text-stone-500">
-                Starting from
+                Mulai dari
               </p>
               <p className="mt-1 text-3xl font-bold text-stone-900 dark:text-white">
                 {formatCurrency(listing.price)}
               </p>
               <p className="text-sm text-stone-600 dark:text-stone-400">
-                per night
+                per malam
               </p>
               <Link
                 to={`/listings/${id}/book`}
                 className="mt-6 flex w-full items-center justify-center rounded-xl bg-teal-800 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-teal-900 active:scale-[0.99]"
               >
-                Submit booking
+                Ajukan booking
               </Link>
               {ownerId && ownerId !== user?.id && (
                 <button
@@ -226,7 +228,7 @@ export default function ListingDetailPage() {
                   className="mt-3 flex w-full items-center justify-center gap-2 rounded-xl border border-stone-300 bg-white py-3 text-sm font-semibold text-stone-700 transition hover:bg-stone-50 active:scale-[0.99] disabled:opacity-50 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-300 dark:hover:bg-stone-800"
                 >
                   <MessageCircle className="h-4 w-4" />
-                  {startingChat ? "Opening chat…" : "Chat with Owner"}
+                  {startingChat ? "Membuka chat…" : "Chat dengan Owner"}
                 </button>
               )}
               <ul className="mt-6 space-y-3 border-t border-stone-100 pt-6 text-sm text-stone-600">

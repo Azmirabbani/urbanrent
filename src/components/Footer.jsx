@@ -30,7 +30,7 @@ export function Footer() {
         </div>
 
         <p className="mt-12 border-t border-stone-800 pt-8 text-xs text-stone-600">
-          © {new Date().getFullYear()} UrbanRent. All rights reserved.
+          © {new Date().getFullYear()} UrbanRent. Hak cipta dilindungi.
         </p>
       </div>
     </footer>

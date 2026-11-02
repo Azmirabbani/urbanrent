@@ -88,9 +88,9 @@ export default function SignupPage() {
     <AuthShell variant="signup">
       <Card className="overflow-hidden border-stone-200 shadow-xl dark:border-stone-700 dark:bg-stone-900">
         <CardHeader className="border-b border-stone-100 bg-stone-50 pb-6 dark:border-stone-800 dark:bg-stone-900">
-          <CardTitle className="text-xl dark:text-white">Sign Up</CardTitle>
+          <CardTitle className="text-xl dark:text-white">Daftar</CardTitle>
           <CardDescription className="dark:text-stone-400">
-            Choose your role and fill in your details.
+            Pilih peran dan lengkapi datamu.
           </CardDescription>
         </CardHeader>
         <CardContent className="pt-6 dark:bg-stone-900">
@@ -190,11 +190,11 @@ export default function SignupPage() {
               </p>
             )}
             <Button type="submit" className="w-full" disabled={loading}>
-              {loading ? "Processing…" : "Create Account"}
+              {loading ? "Memproses…" : "Buat Akun"}
             </Button>
           </form>
           <p className="mt-6 text-center text-sm text-stone-600 dark:text-stone-400">
-            Already have an account?{" "}
+            Sudah punya akun?{" "}
             <Link
               to="/signin"
               className="font-medium text-teal-700 underline-offset-2 hover:underline dark:text-teal-400"

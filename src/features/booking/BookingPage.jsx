@@ -34,7 +34,7 @@ export default function BookingPage() {
     e.preventDefault();
     setError(null);
     if (!checkIn) {
-      setError("Please select a Check-in date.");
+      setError("Pilih tanggal check-in.");
       return;
     }
     if (!checkOut) {
@@ -42,7 +42,7 @@ export default function BookingPage() {
       return;
     }
     if (checkOut <= checkIn) {
-      setError("Check-out must be after Check-in.");
+      setError("Tanggal check-out harus setelah check-in.");
       return;
     }
     if (nights < 1) {
@@ -88,7 +88,7 @@ export default function BookingPage() {
             to={`/listings/${listingId}`}
             className="mb-4 inline-flex items-center gap-1 text-sm text-stone-500 transition hover:text-teal-700"
           >
-            <ChevronLeft className="h-4 w-4" /> Back to listing
+            <ChevronLeft className="h-4 w-4" /> Kembali ke listing
           </Link>
           <div className="mt-2 flex items-center gap-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-900 text-white">
@@ -99,7 +99,7 @@ export default function BookingPage() {
                 Booking
               </p>
               <h1 className="text-2xl font-bold text-stone-950 dark:text-white">
-                Book Your Stay
+                Pesan Penginapan
               </h1>
             </div>
           </div>
@@ -189,8 +189,8 @@ export default function BookingPage() {
               {submitting
                 ? "Processing…"
                 : nights > 0
-                  ? `Submit booking · ${formatCurrency(totalPrice)}`
-                  : "Book Now"}
+                  ? `Ajukan booking · ${formatCurrency(totalPrice)}`
+                  : "Ajukan booking"}
             </Button>
           </form>
         </div>

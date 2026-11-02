@@ -23,7 +23,7 @@ export function useListings(filters = {}) {
     try {
       let query = supabase
         .from("listings")
-        .select("id, title, location, price, photos, status, created_at")
+        .select("id, title, location, price, photos, amenities, status, created_at")
         .eq("status", "active");
 
       if (filters.city?.trim()) {
@@ -54,7 +54,7 @@ export function useListings(filters = {}) {
     } finally {
       setLoading(false);
     }
-  }, [filters.city, filters.minPrice, filters.maxPrice, filters.sort]);
+  }, [filters.city, filters.minPrice, filters.maxPrice, filters.sort, filters.amenities]);
 
   useEffect(() => {
     fetchListings();

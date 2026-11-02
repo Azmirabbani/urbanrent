@@ -10,6 +10,7 @@ import { PageShell, PageBand, PageContent } from "@/components/PageShell.jsx";
 import { SearchFilter } from "@/features/listings/SearchFilter.jsx";
 import { ListingCard } from "@/features/listings/ListingCard.jsx";
 import { useListings } from "@/features/listings/useListings.js";
+import { usePageTitle } from "@/lib/usePageTitle.js";
 
 const SORTS = [
   { key: "popular", label: "Populer" },
@@ -39,6 +40,7 @@ export default function ExplorePage() {
     sort: "popular",
   });
   const [page, setPage] = useState(1);
+  usePageTitle("Jelajahi Apartemen");
   const { listings, loading, error } = useListings(filters);
 
   const totalPages = Math.max(1, Math.ceil(listings.length / PAGE_SIZE));
@@ -52,8 +54,8 @@ export default function ExplorePage() {
   return (
     <PageShell>
       <PageBand
-        eyebrow="Search"
-        title="Explore Apartments"
+        eyebrow="Pencarian"
+        title="Jelajahi Apartemen"
         description="Temukan unit yang pas sesuai kota dan budget kamu."
       />
 
@@ -64,7 +66,7 @@ export default function ExplorePage() {
               <SlidersHorizontal className="h-4 w-4" />
             </div>
             <p className="text-sm font-semibold text-stone-900 dark:text-stone-100">
-              Search filters
+              Filter pencarian
             </p>
           </div>
           <SearchFilter onFilter={handleFilter} />
@@ -81,8 +83,8 @@ export default function ExplorePage() {
               }}
               className={
                 filters.sort === s.key
-                  ? "rounded-lg bg-teal-900 px-4 py-1.5 text-xs font-semibold text-white"
-                  : "rounded-lg border border-stone-200 bg-white px-4 py-1.5 text-xs font-medium text-stone-600 transition hover:border-stone-300 hover:bg-stone-50 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-400"
+                  ? "rounded-lg bg-teal-900 px-4 py-2.5 text-xs sm:py-1.5 font-semibold text-white"
+                  : "rounded-lg border border-stone-200 bg-white px-4 py-2.5 text-xs sm:py-1.5 font-medium text-stone-600 transition hover:border-stone-300 hover:bg-stone-50 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-400"
               }
             >
               {s.label}
@@ -90,7 +92,7 @@ export default function ExplorePage() {
           ))}
           {!loading && (
             <span className="ml-auto text-xs text-stone-400">
-              {listings.length} listings found
+              {listings.length} listing ditemukan
             </span>
           )}
         </div>
@@ -133,10 +135,10 @@ export default function ExplorePage() {
                     </div>
                     <div>
                       <p className="font-semibold text-stone-700 dark:text-stone-300">
-                        No listings available
+                        Belum ada listing yang cocok
                       </p>
                       <p className="mt-1 text-sm text-stone-400">
-                        Try adjusting your filters.
+                        Coba ubah filter pencarianmu.
                       </p>
                     </div>
                   </div>
@@ -150,7 +152,7 @@ export default function ExplorePage() {
               type="button"
               onClick={() => setPage((p) => Math.max(1, p - 1))}
               disabled={page === 1}
-              className="flex h-9 w-9 items-center justify-center rounded-lg border border-stone-200 bg-white text-stone-600 transition hover:bg-stone-50 disabled:opacity-40 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-400"
+              className="flex h-10 w-10 items-center justify-center rounded-lg border border-stone-200 bg-white text-stone-600 transition hover:bg-stone-50 disabled:opacity-40 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-400"
             >
               <ChevronLeft className="h-4 w-4" />
             </button>
@@ -159,7 +161,7 @@ export default function ExplorePage() {
                 key={i}
                 type="button"
                 onClick={() => setPage(i + 1)}
-                className={`flex h-9 w-9 items-center justify-center rounded-lg text-sm font-medium transition ${
+                className={`flex h-10 w-10 items-center justify-center rounded-lg text-sm font-medium transition ${
                   page === i + 1
                     ? "bg-teal-900 text-white"
                     : "border border-stone-200 bg-white text-stone-600 hover:bg-stone-50 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-400"
@@ -172,7 +174,7 @@ export default function ExplorePage() {
               type="button"
               onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
               disabled={page === totalPages}
-              className="flex h-9 w-9 items-center justify-center rounded-lg border border-stone-200 bg-white text-stone-600 transition hover:bg-stone-50 disabled:opacity-40 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-400"
+              className="flex h-10 w-10 items-center justify-center rounded-lg border border-stone-200 bg-white text-stone-600 transition hover:bg-stone-50 disabled:opacity-40 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-400"
             >
               <ChevronRight className="h-4 w-4" />
             </button>

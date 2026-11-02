@@ -17,7 +17,7 @@ export function ListingCard({
   price,
   image,
   amenities,
-  rating = 4.8,
+  rating,
 }) {
   const { toggle, isFavorite } = useFavorites();
   const { toast } = useToast();
@@ -35,8 +35,8 @@ export function ListingCard({
     } else {
       navigator.clipboard.writeText(url).then(() => {
         toast({
-          title: "Link copied",
-          description: "Listing link copied to clipboard.",
+          title: "Link disalin",
+          description: "Link listing disalin ke clipboard.",
           variant: "success",
         });
       });
@@ -47,7 +47,7 @@ export function ListingCard({
     e.preventDefault();
     toggle(id);
     toast({
-      title: fav ? "Removed from favorites" : "Added to favorites",
+      title: fav ? "Dihapus dari favorit" : "Ditambahkan ke favorit",
       variant: fav ? "default" : "success",
     });
   }
@@ -71,22 +71,24 @@ export function ListingCard({
         <div className="absolute bottom-0 left-0 right-0 bg-linear-to-t from-black/60 to-transparent px-4 pb-3 pt-8">
           <span className="text-base font-bold text-white drop-shadow">
             {formatCurrency(price)}
-            <span className="text-sm font-normal text-white/80"> / night</span>
+            <span className="text-sm font-normal text-white/80"> / malam</span>
           </span>
         </div>
 
         {/* top actions */}
         <div className="absolute right-3 top-3 flex items-center gap-1.5">
-          {/* rating */}
-          <div className="flex items-center gap-1 rounded-full bg-white/95 px-2.5 py-1 text-xs font-semibold text-stone-800 shadow-sm backdrop-blur-sm dark:bg-stone-900/90 dark:text-white">
-            <Star className="h-3 w-3 fill-amber-400 text-amber-400" />
-            {rating}
-          </div>
+          {/* rating: hanya tampil jika ada data rating */}
+          {rating != null && (
+            <div className="flex items-center gap-1 rounded-full bg-white/95 px-2.5 py-1 text-xs font-semibold text-stone-800 shadow-sm backdrop-blur-sm dark:bg-stone-900/90 dark:text-white">
+              <Star className="h-3 w-3 fill-amber-400 text-amber-400" />
+              {rating}
+            </div>
+          )}
           {/* share */}
           <button
             type="button"
             onClick={handleShare}
-            className="flex h-7 w-7 items-center justify-center rounded-full bg-white/95 text-stone-600 shadow-sm backdrop-blur-sm transition hover:bg-white hover:text-teal-700 dark:bg-stone-900/90 dark:text-stone-300"
+            className="flex h-9 w-9 items-center justify-center rounded-full bg-white/95 text-stone-600 shadow-sm backdrop-blur-sm transition hover:bg-white hover:text-teal-700 dark:bg-stone-900/90 dark:text-stone-300"
             aria-label="Bagikan listing"
           >
             <Share2 className="h-3.5 w-3.5" />
@@ -95,7 +97,7 @@ export function ListingCard({
           <button
             type="button"
             onClick={handleFav}
-            className="flex h-7 w-7 items-center justify-center rounded-full bg-white/95 shadow-sm backdrop-blur-sm transition hover:bg-white dark:bg-stone-900/90"
+            className="flex h-9 w-9 items-center justify-center rounded-full bg-white/95 shadow-sm backdrop-blur-sm transition hover:bg-white dark:bg-stone-900/90"
             aria-label={fav ? "Hapus dari favorit" : "Tambah ke favorit"}
           >
             <Heart
